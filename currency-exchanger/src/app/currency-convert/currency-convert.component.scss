@@ -1,0 +1,33 @@
+.circle {
+    cursor: pointer;
+}
+
+
+#grid { 
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2vw;
+    margin-top: 50px;
+    }
+  #grid > div {
+    font-size: 16px;
+    padding: .5em;
+    background: rgb(219, 200, 200);
+    text-align: center;
+    border-radius: 1px;
+  }
+
+
+  .simple-result{
+    height: 40px;
+    margin: 20px;
+    padding: .5em;
+    border: 1px solid ;
+    text-align: center;
+  }
+
+  .card{
+    border: 1px solid;
+    padding: 20px;
+  }

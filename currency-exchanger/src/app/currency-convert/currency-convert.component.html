@@ -1,0 +1,59 @@
+<div class="row card">
+    <form [formGroup]="currencyForm" (ngSubmit)="onSubmit()">
+        <div class="row my-3 gx-5">
+            <div class="col">
+                <label for="exampleFormControlInput1" class="form-label">Amount</label>
+                <input type="email" class="form-control form-control-md" formControlName="amount"
+                    id="exampleFormControlInput1" placeholder="add your amount">
+            </div>
+
+            <div class="col">
+                <label for="from" class="form-label">From</label>
+                <select class="form-select form-select-md mb-3" aria-label="Large select example" [disabled]="detailPageFlag"
+                formControlName="from">
+                    <option *ngFor="let item of currencyList" [ngValue]="item"> {{item.name}}</option>
+
+                </select>
+            </div>
+
+            <div class="col d-flex d-flex justify-content-center align-items-center">
+                <div class="circle d-flex justify-content-center align-items-center" (click)="switchCurrencies()">
+                    <img src="../../assets/svg/svgviewer-output.svg" alt="">
+                </div>
+            </div>
+
+            <div class="col">
+                <label for="from" class="form-label">To</label>
+                <select class="form-select form-select-md mb-3" aria-label="Large select example"
+                formControlName="to">
+                    <option *ngFor="let item of currencyList" [ngValue]="item"> {{item.name}}</option>
+
+                </select>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-end align-items-end">
+            <div class="col-6">
+                <button class="btn btn-primary w-100" type="submit" [disabled]="currencyForm.invalid">Convert</button>
+            </div>
+        </div>
+
+    </form>
+    <div class="row my-3" style="margin-top: 69px;">
+        <div class="col rounded simple-result">
+            {{sampleView }}
+        </div>
+        <div class="col rounded simple-result">
+            {{this.result}}
+        </div>
+        <div class="col rounded mt-3" *ngIf="!detailPageFlag">
+            <button class="btn btn-primary w-100"  (click)="goToDetails()" type="button">More details</button>
+        </div>
+    </div>
+</div>
+
+<div id="grid" *ngIf="!detailPageFlag">
+    <div class="rounded" *ngFor="let item  of popularValues ">
+        {{getRate(item)}}
+    </div>
+
+  </div>
